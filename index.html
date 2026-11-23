@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GD Live Chat</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-bg="normal" data-pos="center">
+<div class="stage">
+  <div class="stack" id="stack">
+    <div class="frame vframe hidden" id="vframe">
+      <canvas id="vhead" height="10"></canvas>
+      <div class="vbox" id="vbox"></div>
+    </div>
+    <div class="frame panel" id="panel">
+      <canvas id="head" height="10"></canvas>
+      <div class="list" id="list" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+
+<div class="ui" id="ui">
+  <button class="gear" id="gear" aria-label="Settings" aria-expanded="false">&#9881;</button>
+  <div class="card" id="card">
+    <label for="url">Stream link (Twitch or YouTube)</label>
+    <input type="text" id="url" placeholder="twitch.tv/name  or  youtube.com/watch?v=..." autocomplete="off" autocapitalize="none" autocorrect="off" inputmode="url" spellcheck="false">
+    <div id="keyWrap" class="hidden">
+      <label for="key">YouTube Data API key</label>
+      <input type="password" id="key" placeholder="AIza..." autocomplete="off">
+      <p class="hint">YouTube only allows chat reading with a free API key (Google Cloud &rarr; YouTube Data API v3).</p>
+    </div>
+    <div class="btns">
+      <button id="connect">Connect</button>
+      <button id="demo" class="alt">Demo chat</button>
+    </div>
+    <div class="status" id="status"></div>
+
+    <label><input type="checkbox" id="svid" checked> Show the live video on top</label>
+    <label for="bg">Background</label>
+    <select id="bg">
+      <option value="normal">GD blue</option>
+      <option value="green">Green screen</option>
+      <option value="transparent">Transparent (OBS)</option>
+    </select>
+    <label for="zoom">Text size</label>
+    <input type="range" id="zoom" min="0.5" max="2.5" step="0.05" value="1">
+    <div id="greenOpts">
+      <label for="width">Chat width (green / transparent)</label>
+      <input type="range" id="width" min="20" max="100" step="1" value="40">
+      <label for="pos">Position</label>
+      <select id="pos"><option value="left">Left</option><option value="center">Center</option><option value="right">Right</option></select>
+    </div>
+    <div class="btns">
+      <button id="green">Green screen + fullscreen</button>
+      <button id="full" class="dim">Fullscreen</button>
+    </div>
+    <p class="hint">Keys: <b>F</b> fullscreen, <b>G</b> green screen, <b>S</b> this panel. Esc leaves fullscreen.</p>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
